@@ -1,4 +1,4 @@
-//Msaglimbeni, Updated: Now;
+//Msaglimbeni is a cunt, Updated: forever;
 
 package main;
 
