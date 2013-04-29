@@ -1,3 +1,13 @@
+/*
+ * Class: MenuState
+ * Author: Trevor Hebert, Max Saglimbeni
+ * 
+ * Last Edited: April 28, 2013
+ * Class Description: This class handles the Game menu.
+ * 
+ * 
+ * 
+ */
 package gameState;
 
 import java.awt.*;

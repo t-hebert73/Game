@@ -1,3 +1,13 @@
+/*
+ * Class: Background
+ * Author: Trevor Hebert, Max Saglimbeni
+ * 
+ * Last Edited: April 28, 2013
+ * Class Description: This class handles the background.
+ * 
+ * 
+ * 
+ */
 package tileMap;
 
 import java.awt.image.*;

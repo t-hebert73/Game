@@ -1,4 +1,13 @@
-//Msaglimbeni, Updated: Now;
+/*
+ * Class: Game
+ * Author: Trevor Hebert, Max Saglimbeni
+ * 
+ * Last Edited: April 28, 2013
+ * Class Description: This class handles the game window.
+ * 
+ * 
+ * 
+ */
 
 package main;
 

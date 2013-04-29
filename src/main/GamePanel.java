@@ -1,3 +1,14 @@
+/*
+ * Class: GamePanel
+ * Author: Trevor Hebert, Max Saglimbeni
+ * 
+ * Last Edited: April 28, 2013
+ * Class Description: This class handles the game info, key presses and game loop.
+ * 
+ * 
+ * 
+ */
+
 package main;
 
 import gameState.GameStateManager;

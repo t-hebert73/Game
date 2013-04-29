@@ -1,3 +1,14 @@
+/*
+ * Class: GameState
+ * Author: Trevor Hebert, Max Saglimbeni
+ * 
+ * Last Edited: April 28, 2013
+ * Class Description: I don't fully understand how abstract classes work but I know its used for subclassing. lol
+ * 
+ * 
+ * 
+ */
+
 package gameState;
 
 public abstract class GameState {

@@ -1,3 +1,13 @@
+/*
+ * Class: GameStateManager
+ * Author: Trevor Hebert, Max Saglimbeni
+ * 
+ * Last Edited: April 28, 2013
+ * Class Description: This class handles the states of the game. 
+ * 
+ * 
+ * 
+ */
 package gameState;
 
 import java.util.ArrayList;
