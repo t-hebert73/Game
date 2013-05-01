@@ -17,55 +17,67 @@ import tileMap.Background;
 
 public class MenuState extends GameState {
 	
+	//Background
 	private Background bg;
 	
+	//Current Choice
 	private int currentChoice = 0;
 	
+	//Menu
 	private String[] options = {
 			"Start",
 			"Help",
 			"Quit"
 	};
 	
+	//Fonts for the menu
 	private Color titleColor;
 	private Font titleFont;
 	private Font font;
 	
+	//Constructor
 	public MenuState(GameStateManager gsm) {
 		
 		this.gsm = gsm;
 		
 		try{
+			//Set the background
 			bg = new Background("/Backgrounds/menubg.gif", 1);
 			bg.setVector(-0.1, 0);
 			
+			//Set the title color
 			titleColor = new Color(128,0,0);
+			
+			//Set the title font
 			titleFont = new Font(
 					"Century Gothic",
-					Font.PLAIN,
-					28);
+					Font.PLAIN, 28);
 			
+			//Set the regular font
 			font = new Font("Arial", Font.PLAIN, 12);
 		}
 		catch(Exception e) {
-			e.printStackTrace();
+			e.printStackTrace(); 
 		}
 	}
 	
 	public void init() {}
+	
+	//Update the background
 	public void update() {
 		bg.update();
 	}
+	
 	public void draw(Graphics2D g) {
-		//draw bg
+		//Draw background
 		bg.draw(g);
 		
-		//draw title
+		//Draw title
 		g.setColor(titleColor);
 		g.setFont(titleFont);
 		g.drawString("Zombie Killer", 80, 70);
 		
-		//draw menu options
+		//Draw menu options
 		g.setFont(font);
 		for(int i=0; i < options.length; i++) {
 			if(i == currentChoice){
@@ -79,30 +91,31 @@ public class MenuState extends GameState {
 	}
 	private void select(){
 		if(currentChoice == 0){
-			//start
+			//Start
 		}
 		if(currentChoice == 1){
-			//help
+			//Help
 		}
 		if(currentChoice == 2){
 			System.exit(0);
 		}
 	}
 	
+	//Handle key events
 	public void keyPressed(int k) {
 		if(k == KeyEvent.VK_ENTER){
-			select();
+			select(); // enter = select
 		}
 		if(k == KeyEvent.VK_UP){
-			currentChoice--;
+			currentChoice--; // Move up the menu
 			if(currentChoice == -1){
-				currentChoice = options.length - 1;
+				currentChoice = options.length - 1;  
 			}
 		}
 		if(k == KeyEvent.VK_DOWN){
-			currentChoice++;
+			currentChoice++; // Move down the menu
 			if(currentChoice == options.length) {
-				currentChoice = 0;
+				currentChoice = 0; 
 			}
 			
 		}

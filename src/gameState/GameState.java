@@ -13,6 +13,7 @@ package gameState;
 
 public abstract class GameState {
 	
+	//Reference to GameStateManager so it can change its state
 	protected GameStateManager gsm;
 	
 	public abstract void init();
