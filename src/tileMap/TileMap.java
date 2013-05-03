@@ -44,7 +44,7 @@ public class TileMap {
 		this.tileSize = tileSize;
 		numRowsToDraw = GamePanel.HEIGHT / tileSize + 2;
 		numColsToDraw = GamePanel.WIDTH / tileSize + 2;
-		tween = 0.07;
+		tween = 1;
 	}
 	
 	//Loads tileset into memory
@@ -81,7 +81,9 @@ public class TileMap {
 	
 	//Loads map file into memory
 	public void loadMap(String s) {
+		
 		try{
+			
 			InputStream in = getClass().getResourceAsStream(s);
 			BufferedReader br = new BufferedReader(
 					new InputStreamReader(in));
@@ -92,8 +94,12 @@ public class TileMap {
 			width = numCols * tileSize;
 			height = numRows * tileSize;
 			
-			String delims = "\\s+";
+			xmin = GamePanel.WIDTH - width;
+			xmax = 0;
+			ymin = GamePanel.HEIGHT - height;
+			ymax = 0;
 			
+			String delims = "\\s+";
 			for(int row = 0; row < numRows; row++){
 				String line = br.readLine();
 				String[] tokens = line.split(delims);
@@ -119,6 +125,8 @@ public class TileMap {
 		int c = rc % numTilesAcross;
 		return tiles[r][c].getType();
 	}
+	
+	public void setTween(double d) { tween = d; }
 	
 	public void setPosition(double x, double y){
 		this.x += (x - this.x) * tween;
