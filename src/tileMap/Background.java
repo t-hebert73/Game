@@ -13,7 +13,6 @@ package tileMap;
 import java.awt.image.*;
 import java.awt.*;
 import javax.imageio.ImageIO;
-
 import main.GamePanel;
 
 public class Background {
