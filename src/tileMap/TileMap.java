@@ -111,6 +111,7 @@ public class TileMap {
 			ymax = 0;
 			
 			String delims = "\\s+";
+			
 			for(int row = 0; row < numRows; row++){
 				String line = br.readLine();
 				String[] tokens = line.split(delims);
@@ -153,7 +154,8 @@ public class TileMap {
 		if(x < xmin) x = xmin;
 		if(y < ymin) y = ymin;
 		if(x > xmax) x = xmax;
-		if(y > ymax) y = ymax; //this was the error. if(x > ymax) x = xmax;
+		if(y > ymax) y = ymax; 
+
 	}
 	
 	public void draw(Graphics2D g){
