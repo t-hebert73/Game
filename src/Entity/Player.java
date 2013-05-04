@@ -203,6 +203,15 @@ public class Player extends MapObject{
 		checkTileMapCollision();
 		setPosition(xtemp, ytemp);
 		
+		//Check attack has stopped
+		if(currentAction == SCRATCHING){
+			if(animation.hasPlayedOnce()) scratching = false;
+		}
+		
+		if(currentAction == FIREBALL){
+			if(animation.hasPlayedOnce()) firing = false;
+		}
+		
 		//Set Animation
 		if(scratching){
 			if(currentAction != SCRATCHING){
