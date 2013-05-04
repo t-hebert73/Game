@@ -1,3 +1,14 @@
+/*
+ * Class: Level1State
+ * Author: Trevor Hebert, Max Saglimbeni
+ * 
+ * Last Edited: May 4, 2013
+ * Class Description: This class handles the level 1 state.
+ * 
+ * 
+ * 
+ */
+
 package gameState;
 
 import java.awt.*;
@@ -57,8 +68,8 @@ public class Level1State extends GameState{
 		if(k == KeyEvent.VK_DOWN) player.setDown(true);
 		if(k == KeyEvent.VK_SPACE) player.setJumping(true);
 		if(k == KeyEvent.VK_E) player.setGliding(true);
-		if(k == KeyEvent.VK_R) player.setScratching();
-		if(k == KeyEvent.VK_F) player.setFiring();
+		if(k == KeyEvent.VK_R) player.setScratching(true);
+		if(k == KeyEvent.VK_F) player.setFiring(true);
 		
 	}
 	public void keyReleased(int k) {
@@ -68,6 +79,8 @@ public class Level1State extends GameState{
 		if(k == KeyEvent.VK_DOWN) player.setDown(false);
 		if(k == KeyEvent.VK_SPACE) player.setJumping(false);
 		if(k == KeyEvent.VK_E) player.setGliding(false);
+		if(k == KeyEvent.VK_R) player.setScratching(false);
+		if(k == KeyEvent.VK_F) player.setFiring(false);
 	}
 
 }

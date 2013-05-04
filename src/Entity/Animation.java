@@ -1,3 +1,14 @@
+/*
+ * Class: Animation
+ * Author: Trevor Hebert, Max Saglimbeni
+ * 
+ * Last Edited: May 4, 2013
+ * Class Description: This class handles the animation.
+ * 
+ * 
+ * 
+ */
+
 package Entity;
 
 import java.awt.image.BufferedImage;

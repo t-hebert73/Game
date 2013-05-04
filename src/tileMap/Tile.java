@@ -1,3 +1,14 @@
+/*
+ * Class: Tile
+ * Author: Trevor Hebert, Max Saglimbeni
+ * 
+ * Last Edited: May 4, 2013
+ * Class Description: This class handles the tiles.
+ * 
+ * 
+ * 
+ */
+
 package tileMap;
 
 import java.awt.image.BufferedImage;

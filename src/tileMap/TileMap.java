@@ -1,3 +1,14 @@
+/*
+ * Class: TileMap
+ * Author: Trevor Hebert, Max Saglimbeni
+ * 
+ * Last Edited: May 4, 2013
+ * Class Description: This class handles the tilemap.
+ * 
+ * 
+ * 
+ */
+
 package tileMap;
 
 import java.awt.*;
@@ -142,7 +153,7 @@ public class TileMap {
 		if(x < xmin) x = xmin;
 		if(y < ymin) y = ymin;
 		if(x > xmax) x = xmax;
-		if(x > ymax) x = xmax;
+		if(y > ymax) y = ymax; //this was the error. if(x > ymax) x = xmax;
 	}
 	
 	public void draw(Graphics2D g){

@@ -1,3 +1,14 @@
+/*
+ * Class: MapObject
+ * Author: Trevor Hebert, Max Saglimbeni
+ * 
+ * Last Edited: May 4, 2013
+ * Class Description: This class handles the map.
+ * 
+ * 
+ * 
+ */
+
 package Entity;
 
 import tileMap.TileMap;

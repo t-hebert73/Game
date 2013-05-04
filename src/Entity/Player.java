@@ -1,3 +1,14 @@
+/*
+ * Class: Player
+ * Author: Trevor Hebert, Max Saglimbeni
+ * 
+ * Last Edited: May 4, 2013
+ * Class Description: This class handles the player.
+ * 
+ * 
+ * 
+ */
+
 package Entity;
 
 import tileMap.*;
@@ -121,12 +132,12 @@ public class Player extends MapObject{
 	public int getFire() { return fire; }
 	public int getMaxFire() { return maxFire; }
 	
-	public void setFiring(){
-		firing = true;
+	public void setFiring(boolean b){
+		firing = b;
 	}
 	
-	public void setScratching(){
-		scratching  = true;
+	public void setScratching(boolean b){
+		scratching  = b;
 	}
 	
 	public void setGliding(boolean b){
