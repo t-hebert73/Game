@@ -15,6 +15,7 @@ import java.awt.*;
 import tileMap.*;
 import Entity.*;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 
 import main.GamePanel;
 
@@ -24,6 +25,8 @@ public class Level1State extends GameState{
 	private Background bg;
 	
 	private Player player;
+	
+	private ArrayList<Enemy> enemies;
 	
 	public Level1State(GameStateManager gsm){
 		this.gsm = gsm;
@@ -48,6 +51,9 @@ public class Level1State extends GameState{
 		tileMap.setPosition(
 				GamePanel.WIDTH / 2 - player.getx(),
 				GamePanel.HEIGHT / 2 - player.gety());
+		
+		//Set Background for scrolling
+		bg.setPosition(tileMap.getx(), tileMap.gety());
 	}
 
 	public void draw(Graphics2D g) {
