@@ -4,6 +4,7 @@ import Entity.*;
 import tileMap.TileMap;
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
+import java.awt.Graphics2D;
 
 public class Slugger extends Enemy{
 	
@@ -31,7 +32,7 @@ public class Slugger extends Enemy{
 			
 			BufferedImage spritesheet = ImageIO.read(
 					getClass().getResourceAsStream(
-							"Sprites/Enemies/slugger.gif"));
+							"/Sprites/Enemies/slugger.gif"));
 			
 			sprites = new BufferedImage[3];
 			for(int i = 0; i < sprites.length; i++){
@@ -52,6 +53,7 @@ public class Slugger extends Enemy{
 		animation.setDelay(300);
 		
 		right = true;
+		facingRight = true;
 	}
 	
 	private void getNextPosition() {
@@ -94,11 +96,22 @@ public class Slugger extends Enemy{
 		}
 		
 		//If it hits a wall, go other direction
+		if(right && dx == 0) {
+			right = false;
+			left = true;
+			facingRight = false;
+		}
+		else if(left && dx == 0) {
+			right = true;
+			left = false;
+			facingRight = true;
+		}
 		
-
+		//Update Animation
+		animation.update();
 	}
 	
-	public void draw(java.awt.Graphics2D g){
+	public void draw(Graphics2D g){
 		
 		if(notOnScreen()) return;
 		

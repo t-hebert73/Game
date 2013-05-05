@@ -16,6 +16,7 @@ import tileMap.*;
 import Entity.*;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
+import Entity.Enemies.*;
 
 import main.GamePanel;
 
@@ -27,6 +28,8 @@ public class Level1State extends GameState{
 	private Player player;
 	
 	private ArrayList<Enemy> enemies;
+	
+	private HUD hud;
 	
 	public Level1State(GameStateManager gsm){
 		this.gsm = gsm;
@@ -44,6 +47,15 @@ public class Level1State extends GameState{
 		
 		player = new Player(tileMap);
 		player.setPosition(100,100);
+		
+		enemies = new ArrayList<Enemy>();
+		
+		Slugger s;
+		s = new Slugger(tileMap);
+		s.setPosition(100, 100);
+		enemies.add(s);
+		
+		hud = new HUD(player);
 	}
 	
 	public void update() {
@@ -54,6 +66,11 @@ public class Level1State extends GameState{
 		
 		//Set Background for scrolling
 		bg.setPosition(tileMap.getx(), tileMap.gety());
+		
+		//Update Enemies
+		for(int i = 0; i < enemies.size(); i++) {
+			enemies.get(i).update();
+		}
 	}
 
 	public void draw(Graphics2D g) {
@@ -66,6 +83,14 @@ public class Level1State extends GameState{
 		
 		//Draw player
 		player.draw(g);
+		
+		//Draw Enemies
+		for(int i = 0; i < enemies.size(); i++) {
+			enemies.get(i).draw(g);
+		}
+		
+		//Draw hud
+		hud.draw(g);
 	}
 	public void keyPressed(int k) {
 		if(k == KeyEvent.VK_LEFT) player.setLeft(true);
