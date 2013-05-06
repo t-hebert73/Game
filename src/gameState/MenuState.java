@@ -42,7 +42,7 @@ public class MenuState extends GameState {
 		
 		this.gsm = gsm;
 		
-		try{
+		try {
 			//Set the background
 			bg = new Background("/Backgrounds/menubg.gif", 1);
 			bg.setVector(-0.1, 0);
@@ -94,31 +94,31 @@ public class MenuState extends GameState {
 			g.drawString(options[i], 145, 140 + i * 15);
 		}
 	}
-	private void select(){
-		if(currentChoice == 0){
+	private void select() {
+		if(currentChoice == 0) {
 			//Start
 			gsm.setState(GameStateManager.LEVEL1STATE);
 		}
-		if(currentChoice == 1){
+		if(currentChoice == 1) {
 			//Help
 		}
-		if(currentChoice == 2){
+		if(currentChoice == 2) {
 			System.exit(0);
 		}
 	}
 	
 	//Handle key events
 	public void keyPressed(int k) {
-		if(k == KeyEvent.VK_ENTER){
+		if(k == KeyEvent.VK_ENTER) {
 			select(); // enter = select
 		}
-		if(k == KeyEvent.VK_UP){
+		if(k == KeyEvent.VK_UP) {
 			currentChoice--; // Move up the menu
-			if(currentChoice == -1){
+			if(currentChoice == -1) {
 				currentChoice = options.length - 1;  
 			}
 		}
-		if(k == KeyEvent.VK_DOWN){
+		if(k == KeyEvent.VK_DOWN) {
 			currentChoice++; // Move down the menu
 			if(currentChoice == options.length) {
 				currentChoice = 0; 
@@ -127,6 +127,4 @@ public class MenuState extends GameState {
 		}
 	}
 	public void keyReleased(int k) {}
-	
-
 }

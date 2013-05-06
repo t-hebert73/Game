@@ -1,14 +1,13 @@
 /*
- * Class: Level1State
+ * Class: HUD
  * Author: Trevor Hebert, Max Saglimbeni
  * 
  * Last Edited: May 5, 2013
- * Class Description: This class handles the level 1 state.
+ * Class Description: This class handles the players Health and Power GUI
  * 
  * 
  * 
  */
-
 package Entity;
 
 import java.awt.*;

@@ -1,14 +1,13 @@
 /*
- * Class: Level1State
+ * Class: FireBall
  * Author: Trevor Hebert, Max Saglimbeni
  * 
  * Last Edited: May 5, 2013
- * Class Description: This class handles the level 1 state.
+ * Class Description: This class handles the FireBall animation
  * 
  * 
  * 
  */
-
 package Entity;
 
 import tileMap.TileMap;
@@ -16,14 +15,14 @@ import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
 import java.awt.*;
 
-public class FireBall extends MapObject{
+public class FireBall extends MapObject {
 	
 	private boolean hit;
 	private boolean remove;
 	private BufferedImage[] sprites;
 	private BufferedImage[] hitSprites;
 	
-	public FireBall(TileMap tm, boolean right){
+	public FireBall(TileMap tm, boolean right) {
 		super(tm);
 		
 		facingRight = right;
@@ -38,42 +37,42 @@ public class FireBall extends MapObject{
 		cheight = 14;
 		
 		//Load sprites
-		try{
+		try {
 			
 			BufferedImage spritesheet = ImageIO.read(
 					getClass().getResourceAsStream(
 					        "/Sprites/Player/fireball.gif"));
 			
 			sprites = new BufferedImage[4];
-			for(int i = 0; i < sprites.length; i++){
+			for(int i = 0; i < sprites.length; i++) {
 				sprites[i] = spritesheet.getSubimage(
 						i * width,
 						0,
 						width,
 						height);
-			}
+			 }
 			
-			hitSprites = new BufferedImage[3];
-			for(int i = 0; i < hitSprites.length; i++){
+		  	 hitSprites = new BufferedImage[3];
+			 for(int i = 0; i < hitSprites.length; i++) {
 				hitSprites[i] = spritesheet.getSubimage(
 						i * width,
 						height,
 						width,
 						height);
 						
-			}
+			 }
 			
-			animation = new Animation();
-			animation.setFrames(sprites);
-			animation.setDelay(70);
+		  	 animation = new Animation();
+			 animation.setFrames(sprites);
+			 animation.setDelay(70);
 			
 		}
-		catch(Exception e){
+		catch(Exception e) {
 			e.printStackTrace();
 		}
 	}
 	
-	public void setHit(){
+	public void setHit() {
 		if(hit) return;
 		hit = true;
 		animation.setFrames(hitSprites);
@@ -81,30 +80,27 @@ public class FireBall extends MapObject{
 		dx = 0;
 	}
 	
-	public boolean shouldRemove(){ return remove; }
+	public boolean shouldRemove() { return remove; }
 	
-	public void update(){
+	public void update() {
 		
 		checkTileMapCollision();
 		setPosition(xtemp, ytemp);
 		
-		if(dx == 0 && !hit){
+		if(dx == 0 && !hit) {
 			setHit();
 		}
 		
 		animation.update();
-		if(hit && animation.hasPlayedOnce()){
+		if(hit && animation.hasPlayedOnce()) {
 			remove = true;
 		}
 	}
 	
-	public void  draw(Graphics2D g){
-		
+	public void  draw(Graphics2D g) {
 		setMapPosition();
-		
 		super.draw(g);
 	}
-
 }
 
 

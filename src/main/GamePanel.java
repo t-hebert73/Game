@@ -18,7 +18,7 @@ import java.awt.event.*;
 import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
-public class GamePanel extends JPanel implements Runnable, KeyListener{
+public class GamePanel extends JPanel implements Runnable, KeyListener {
 	
 	//Game dimensions 
 	public static final int WIDTH = 320;
@@ -132,6 +132,4 @@ public class GamePanel extends JPanel implements Runnable, KeyListener{
 	public void keyReleased(KeyEvent key) {
 		gsm.keyReleased(key.getKeyCode());
 	}
-	
-	
 }

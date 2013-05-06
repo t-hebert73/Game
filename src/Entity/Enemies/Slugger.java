@@ -1,3 +1,13 @@
+/*
+ * Class: Slugger
+ * Author: Trevor Hebert, Max Saglimbeni
+ * 
+ * Last Edited: May 6, 2013
+ * Class Description: This class handles the enemy "Slugger".
+ * 
+ * 
+ * 
+ */
 package Entity.Enemies;
 
 import Entity.*;
@@ -6,11 +16,11 @@ import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
 import java.awt.Graphics2D;
 
-public class Slugger extends Enemy{
+public class Slugger extends Enemy {
 	
 	private BufferedImage[] sprites;
 	
-	public Slugger(TileMap tm){
+	public Slugger(TileMap tm) {
 		
 		super(tm);
 		
@@ -28,23 +38,22 @@ public class Slugger extends Enemy{
 		damage = 1;
 		
 		//Load Sprites
-		try{
+		try {
 			
 			BufferedImage spritesheet = ImageIO.read(
 					getClass().getResourceAsStream(
 							"/Sprites/Enemies/slugger.gif"));
 			
 			sprites = new BufferedImage[3];
-			for(int i = 0; i < sprites.length; i++){
+			for(int i = 0; i < sprites.length; i++) {
 				sprites[i] = spritesheet.getSubimage(
 						i * width,
 						0,
 						width,
 						height);
 			}
-			
 		}
-		catch(Exception e){
+		catch(Exception e) {
 			e.printStackTrace();
 		}
 		
@@ -113,13 +122,10 @@ public class Slugger extends Enemy{
 	
 	public void draw(Graphics2D g){
 		
-		if(notOnScreen()) return;
-		
+		// if(notOnScreen()) return;
 		setMapPosition();
-		
 		super.draw(g);
 	}
-
 }
 
 

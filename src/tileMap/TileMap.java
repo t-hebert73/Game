@@ -2,13 +2,12 @@
  * Class: TileMap
  * Author: Trevor Hebert, Max Saglimbeni
  * 
- * Last Edited: May 4, 2013
+ * Last Edited: May 6, 2013
  * Class Description: This class handles the tilemap.
  * 
  * 
  * 
  */
-
 package tileMap;
 
 import java.awt.*;
@@ -51,7 +50,7 @@ public class TileMap {
 	private int numColsToDraw;
 	
 	//Constructor
-	public TileMap(int tileSize){
+	public TileMap(int tileSize) {
 		this.tileSize = tileSize;
 		numRowsToDraw = GamePanel.HEIGHT / tileSize + 2;
 		numColsToDraw = GamePanel.WIDTH / tileSize + 2;
@@ -59,7 +58,7 @@ public class TileMap {
 	}
 	
 	//Loads tileset into memory
-	public void loadTiles(String s){
+	public void loadTiles(String s) {
 		try{
 			tileset = ImageIO.read(
 					getClass().getResourceAsStream(s));
@@ -67,7 +66,7 @@ public class TileMap {
 			tiles = new Tile[2][numTilesAcross];
 			
 			BufferedImage subimage;
-			for(int col = 0; col < numTilesAcross; col++){
+			for(int col = 0; col < numTilesAcross; col++) {
 				
 				subimage = tileset.getSubimage(
 						col * tileSize,
@@ -85,7 +84,7 @@ public class TileMap {
 				tiles[1][col] = new Tile(subimage, Tile.BLOCKED);
 			}
 		}
-		catch(Exception e){
+		catch(Exception e) {
 			e.printStackTrace();
 		}
 	}
@@ -93,7 +92,7 @@ public class TileMap {
 	//Loads map file into memory
 	public void loadMap(String s) {
 		
-		try{
+		try {
 			
 			InputStream in = getClass().getResourceAsStream(s);
 			BufferedReader br = new BufferedReader(
@@ -112,15 +111,15 @@ public class TileMap {
 			
 			String delims = "\\s+";
 			
-			for(int row = 0; row < numRows; row++){
+			for(int row = 0; row < numRows; row++) {
 				String line = br.readLine();
 				String[] tokens = line.split(delims);
-				for(int col = 0; col < numCols; col++){
+				for(int col = 0; col < numCols; col++) {
 					map[row][col] = Integer.parseInt(tokens[col]);
 				}
 			}
 		}
-		catch(Exception e){
+		catch(Exception e) {
 			e.printStackTrace();
 		}
 	}
@@ -131,7 +130,7 @@ public class TileMap {
 	public int getWidth() { return width; }
 	public int getHeight() { return height; }
 	
-	public int getType(int row, int col){
+	public int getType(int row, int col) {
 		int rc = map[row][col];
 		int r = rc / numTilesAcross;
 		int c = rc % numTilesAcross;
@@ -150,7 +149,7 @@ public class TileMap {
 		rowOffset = (int)-this.y / tileSize;
 	}
 	
-	private void fixBounds(){
+	private void fixBounds() {
 		if(x < xmin) x = xmin;
 		if(y < ymin) y = ymin;
 		if(x > xmax) x = xmax;
@@ -158,11 +157,11 @@ public class TileMap {
 
 	}
 	
-	public void draw(Graphics2D g){
-		for(int row = rowOffset; row < rowOffset + numRowsToDraw; row++){
+	public void draw(Graphics2D g) {
+		for(int row = rowOffset; row < rowOffset + numRowsToDraw; row++) {
 			if(row >= numRows) break;
 			
-			for(int col = colOffset; col < colOffset + numColsToDraw; col++){
+			for(int col = colOffset; col < colOffset + numColsToDraw; col++) {
 				if(col >= numCols) break;
 				
 				if(map[row][col] == 0) continue;
@@ -179,6 +178,4 @@ public class TileMap {
 			}
 		}
 	}
-	
-	
 }

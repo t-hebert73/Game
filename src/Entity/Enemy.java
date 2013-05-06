@@ -1,8 +1,18 @@
+/*
+ * Class: Enemy
+ * Author: Trevor Hebert, Max Saglimbeni
+ * 
+ * Last Edited: May 6, 2013
+ * Class Description: This class handles all of the enemies and 
+ *                    their attributes
+ * 
+ * 
+ */
 package Entity;
 
 import tileMap.TileMap;
 
-public class Enemy extends MapObject{
+public class Enemy extends MapObject {
 	
 	protected int health;
 	protected int maxHealth;
@@ -12,7 +22,7 @@ public class Enemy extends MapObject{
 	protected boolean flinching;
 	protected long flinchTimer;
 	
-	public Enemy(TileMap tm){
+	public Enemy(TileMap tm) {
 		super(tm);
 	}
 	
@@ -20,7 +30,7 @@ public class Enemy extends MapObject{
 	
 	public int getDamage() { return damage; }
 	
-	public void hit(int damage){
+	public void hit(int damage) {
 		if(dead || flinching) return;
 		health -= damage;
 		if(health < 0) health = 0;
@@ -30,5 +40,4 @@ public class Enemy extends MapObject{
 	}
 	
 	public void update() {}
-
 }

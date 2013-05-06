@@ -26,16 +26,16 @@ public class Background {
 	
 	private double moveScale;
 	
-	public Background(String s, double ms){
+	public Background(String s, double ms) {
 		
-		try{
+		try {
 			//Import resource files into the game
 			image = ImageIO.read(
 					getClass().getResourceAsStream(s));
 			
 			moveScale = ms;
 		}
-		catch(Exception e){
+		catch(Exception e) {
 			e.printStackTrace();
 		}
 	}
@@ -52,13 +52,13 @@ public class Background {
 		this.dy = dy;
 	}
 	
-	public void update(){
+	public void update() {
 		x += dx;
 		y += dy;
 	}
 
 	//Draw the background
-	public void draw(Graphics2D g){
+	public void draw(Graphics2D g) {
 		g.drawImage(image,  (int)x,  (int)y,  null);
 		//Making sure the background fills the screen if it is scrolling automatically
 		//To the right
