@@ -41,8 +41,12 @@ public class GameStateManager {
 		gameStates.get(currentState).update(); //Update current gameState
 	}
 	
+	//set current gameState to draw
+	//takes in the image created from GamePanel
 	public void draw(java.awt.Graphics2D g) {
-		gameStates.get(currentState).draw(g); //set current gameState to draw
+		//calls draw() of the current game state.
+		//the first is MenuState.
+		gameStates.get(currentState).draw(g);
 	}
 	
 	public void keyPressed(int k) {

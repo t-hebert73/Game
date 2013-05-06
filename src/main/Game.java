@@ -18,7 +18,7 @@ public class Game {
 	public static void main(String[] args) {
 		
 		javax.swing.JFrame window = new JFrame("Zombie Killer");
-		window.setContentPane(new GamePanel());
+		window.setContentPane(new GamePanel()); // Game class to Gamepanel class
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.setResizable(false);
 		window.pack();

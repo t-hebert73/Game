@@ -39,15 +39,15 @@ public class GamePanel extends JPanel implements Runnable, KeyListener{
 	private GameStateManager gsm;
 	
 	//Game Constructor
-	public GamePanel() {
-		super();
+	public GamePanel() { //game panel constructor
+		super(); 
 		setPreferredSize(new Dimension(WIDTH * SCALE, HEIGHT * SCALE)); //Will scale game to 640x480
 		setFocusable(true);
 		requestFocus();
 	}
 	
 	
-	public void addNotify() {
+	public void addNotify() { //im assuming this gets called automatically when the game panel is created?
 		super.addNotify();
 		if(thread == null) {
 			thread = new Thread(this);
@@ -57,18 +57,22 @@ public class GamePanel extends JPanel implements Runnable, KeyListener{
 	}
 	
 	//Initializer
+	//creates the image of the gamePanel (has not been drawn).
 	public void init() {
 		//Set image buffer
 		image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
 		
-		g = (Graphics2D) image.getGraphics();
+		g = (Graphics2D) image.getGraphics(); //g allows you to draw to the image
 		running = true;
 		
 		//Create new GameStateManager
 		gsm = new GameStateManager();
 	}
 	
-	public void run() {
+	//calls init which creates the gameStateManager. Starts game loop.
+	//constantly calls update(), draw(), drawToScreen)
+	
+	public void run() { 
 		init();
 		
 		//Three timers
@@ -100,19 +104,24 @@ public class GamePanel extends JPanel implements Runnable, KeyListener{
 		}
 	}
 	
-	
-	public void update() {
-		gsm.update();
+	// constantly calls gamestatemanagers update()
+	public void update() { 
+		gsm.update(); 
 	}
 	
+	//constantly draws gamestatemanager-gamestate to the image
 	public void draw() {
+		// gives the image g to the gameStateManager.
+		// eventually draws the gameState to the image. Still isn't displayed yet..
 		gsm.draw(g);
 	}
 	
+	//constantly called.
+	//draws the graphics of the image to the GamePanel(JPanel) which shows up in the Game(JFrame)
 	public void drawToScreen(){
 		Graphics g2 = getGraphics();
-		g2.drawImage(image, 0, 0, WIDTH * SCALE, HEIGHT * SCALE, null);
-		g2.dispose();
+		g2.drawImage(image, 0, 0, WIDTH * SCALE, HEIGHT * SCALE, null); //draw that bitch so everyone can see
+		g2.dispose(); //im assuming this cleans shit
 	}
 	
 	public void keyTyped(KeyEvent key)

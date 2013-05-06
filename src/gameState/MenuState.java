@@ -36,7 +36,9 @@ public class MenuState extends GameState {
 	private Font font;
 	
 	//Constructor
-	public MenuState(GameStateManager gsm) {
+	//called first(obv) 
+	//creates background with titles.
+	public MenuState(GameStateManager gsm) { 
 		
 		this.gsm = gsm;
 		
@@ -68,6 +70,9 @@ public class MenuState extends GameState {
 		bg.update();
 	}
 	
+	//draws to the image which comes from GamePanel
+	//draws the background to the image
+	//
 	public void draw(Graphics2D g) {
 		//Draw background
 		bg.draw(g);
