@@ -45,7 +45,7 @@ public class MenuState extends GameState {
 		try {
 			//Set the background
 			bg = new Background("/Backgrounds/menubg.gif", 1);
-			bg.setVector(-0.1, 0);
+			bg.setVector(-0.5, 0); // set the speed of the background scroll. change the y value and fuck shit up.
 			
 			//Set the title color
 			titleColor = new Color(128,0,0);
