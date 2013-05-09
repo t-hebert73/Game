@@ -10,52 +10,71 @@
  */
 package gameState;
 
-import java.util.ArrayList;
-
 public class GameStateManager {
 	
 	//Array list to hold all game states
-	private ArrayList<GameState> gameStates;
+	private GameState[] gameStates;
 	private int currentState; //Index of the game state list
 	
+	public static final int NUMGAMESTATES = 2;
 	public static final int MENUSTATE = 0;
 	public static final int LEVEL1STATE = 1;
 	
 	//Constructor
 	public GameStateManager() {
 		
-		//Initialize list
-		gameStates = new ArrayList<GameState>();
+		gameStates = new GameState[NUMGAMESTATES];
 		
 		currentState = MENUSTATE;
-		gameStates.add(new MenuState(this)); //Add to gameState list
-		gameStates.add(new Level1State(this));
+		loadState(currentState);
+	}
+	
+	public void loadState(int state) {
+		if(state == MENUSTATE) 
+			gameStates[state] = new MenuState(this);
+		if(state == LEVEL1STATE)
+			gameStates[state] = new Level1State(this);
+	}
+	
+	public void unloadState(int state) {
+		gameStates[state] = null;
 	}
 	
 	public void setState(int state) {
+		unloadState(currentState);
 		currentState = state;
-		gameStates.get(currentState).init(); //Initialize current gameState
+		loadState(currentState);
+		
+		//Not currently using init();
+		//gameStates[currentState].init(); //Initialize current gameState
 	}
 	
 	public void update() {
-		gameStates.get(currentState).update(); //Update current gameState
+		
+		try {
+		    gameStates[currentState].update(); //Update current gameState
+		}
+		catch(Exception e) {}
 	}
 	
 	//set current gameState to draw
 	//takes in the image created from GamePanel
 	public void draw(java.awt.Graphics2D g) {
+		
 		//calls draw() of the current game state.
 		//the first is MenuState.
-		gameStates.get(currentState).draw(g);
+		try {
+		    gameStates[currentState].draw(g);
+		}
+		catch(Exception e) {}
 	}
 	
 	public void keyPressed(int k) {
-		gameStates.get(currentState).keyPressed(k); //set current gameState to keyPressed
+		gameStates[currentState].keyPressed(k); //set current gameState to keyPressed
 	}
 	
 	public void keyReleased(int k) {
-		gameStates.get(currentState).keyReleased(k); //set current gameState to keyReleased
-		
+		gameStates[currentState].keyReleased(k); //set current gameState to keyReleased
 	}
 
 }
