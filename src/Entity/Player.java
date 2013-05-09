@@ -15,6 +15,8 @@ import java.util.ArrayList;
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.util.HashMap;
+import Audio.AudioPlayer;
 
 public class Player extends MapObject {
 	//Player variables
@@ -52,6 +54,8 @@ public class Player extends MapObject {
 	private static final int GLIDING = 4;
 	private static final int FIREBALL = 5;
 	private static final int SCRATCHING = 6;
+	
+	private HashMap<String, AudioPlayer> sfx;
 	
 	public Player(TileMap tm) {
 		super(tm);
@@ -121,6 +125,11 @@ public class Player extends MapObject {
 		currentAction = IDLE;
 		animation.setFrames(sprites.get(IDLE));
 		animation.setDelay(400);
+		
+		//Add new audioplayer's to the hashmap
+		sfx = new HashMap<String, AudioPlayer>();
+		sfx.put("jump", new AudioPlayer("/SFX/jump.mp3"));
+		sfx.put("scratch", new AudioPlayer("/SFX/scratch.mp3"));
 	}
 	
 	public int getHealth() { return health; }
@@ -248,6 +257,7 @@ public class Player extends MapObject {
 		
 		//Jumping 
 		if(jumping && !falling) {
+			sfx.get("jump").play(); // Add jump SFX
 			dy = jumpStart;
 			falling = true;
 		}
@@ -313,6 +323,7 @@ public class Player extends MapObject {
 		//Set Animation
 		if(scratching) {
 			if(currentAction != SCRATCHING) {
+				sfx.get("scratch").play(); // Add SFX for scratch
 				currentAction = SCRATCHING;
 				animation.setFrames(sprites.get(SCRATCHING));
 				animation.setDelay(50);
