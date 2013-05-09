@@ -12,8 +12,8 @@ package gameState;
 
 public class GameStateManager {
 	
-	//Array list to hold all game states
-	private GameState[] gameStates;
+	//Array to hold all game states
+	private GameState[] gameStates; 
 	private int currentState; //Index of the game state list
 	
 	public static final int NUMGAMESTATES = 2;
