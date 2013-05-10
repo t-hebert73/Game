@@ -40,7 +40,7 @@ public class Level1State extends GameState {
 	
 	public void init() {
 		tileMap = new TileMap(30);
-		tileMap.loadTiles("/Tilesets/grasstileset.gif");
+		tileMap.loadTiles("/Tilesets/grasstileset2.gif"); //take out the 2 for the old tileset.
 		tileMap.loadMap("/Maps/level1-1.map");
 		tileMap.setPosition(0,0);
 		tileMap.setTween(1);
@@ -57,7 +57,7 @@ public class Level1State extends GameState {
 		hud = new HUD(player);
 		
 		//Load background music
-		bgMusic = new AudioPlayer("/Music/level1-1.mp3");
+		bgMusic = new AudioPlayer("/Music/level1.mp3"); // change this back for the other music.
 		bgMusic.play();
 	}
 	
