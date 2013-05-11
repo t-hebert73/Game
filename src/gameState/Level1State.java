@@ -57,7 +57,7 @@ public class Level1State extends GameState {
 		hud = new HUD(player);
 		
 		//Load background music
-		bgMusic = new AudioPlayer("/Music/level1.mp3"); // change this back for the other music.
+		bgMusic = new AudioPlayer("/Music/level1.mp3"); // Your dick is small. 8=>
 		bgMusic.play();
 	}
 	
